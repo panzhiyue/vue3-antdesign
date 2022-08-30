@@ -28,3 +28,8 @@ export default {
   },
 };
 </script>
+<style lang="less" scoped>
+#app{
+    text-align:center;
+}
+</style>
