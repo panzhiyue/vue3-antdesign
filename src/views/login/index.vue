@@ -9,20 +9,37 @@
         ref="formRef"
       >
         <FormItem name="username">
-          <Input size="large" :placeholder="'账号'" />
+          <Input
+            size="large"
+            :placeholder="'账号'"
+            v-model:value="formData.username"
+          />
         </FormItem>
         <FormItem name="password">
-          <InputPassword size="large" :placeholder="'密码'" visibilityToggle />
+          <InputPassword
+            size="large"
+            :placeholder="'密码'"
+            visibilityToggle
+            v-model:value="formData.password"
+          />
         </FormItem>
         <ARow>
           <ACol :span="12">
             <FormItem>
-              <Checkbox size="small"> 记住我 </Checkbox>
+              <Checkbox size="small" v-model:checked="rememberMe">
+                记住我
+              </Checkbox>
             </FormItem>
           </ACol>
           <ACol :span="12">
             <FormItem :style="{ 'text-align': 'right' }">
-              <Button type="link" size="small"> 忘记密码? </Button>
+              <Button
+                type="link"
+                size="small"
+                
+              >
+                忘记密码?
+              </Button>
             </FormItem>
           </ACol>
         </ARow>
@@ -43,9 +60,7 @@
 </template>
 
 <script setup>
-console.log(333);
 import { reactive, ref, computed, unref } from "vue";
-import { useRouter } from "vue-router";
 import {
   Checkbox,
   Form,
@@ -60,32 +75,35 @@ const ACol = Col;
 const ARow = Row;
 const FormItem = Form.Item;
 const InputPassword = Input.Password;
+import { useRouter } from "vue-router";
 
-// const router = useRouter();
+const router = useRouter();
 
-// const formData = reactive({
-//   username: "panzhiyue",
-//   password: "123456",
-// });
+const formData = reactive({
+  username: "panzhiyue",
+  password: "123456",
+});
 
-// const formRules = {
-//   username: {
-//     required: true,
-//     message: "请输入账号",
-//     trigger: "change",
-//   },
-//   password: {
-//     required: true,
-//     message: "请输入密码",
-//     trigger: "change",
-//   },
-// };
+const formRules = {
+  username: {
+    required: true,
+    message: "请输入账号",
+    trigger: "change",
+  },
+  password: {
+    required: true,
+    message: "请输入密码",
+    trigger: "change",
+  },
+};
 
-// const rememberMe = ref(true);
+const rememberMe = ref(true);
 
-// const loading = ref(false); //登录按钮加载
+const loading = ref(false); //登录按钮加载
 
-// const login = () => {};
+const login = () => {
+
+};
 </script>
 <style lang="less" scoped>
 .main {
